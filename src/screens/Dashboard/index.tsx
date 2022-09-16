@@ -1,3 +1,5 @@
+import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView, TouchableOpacity } from 'react-native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 import { Button } from '../../components/Button';
@@ -5,7 +7,6 @@ import { CreditCard } from '../../components/CreditCard';
 
 import {
   ButtonsContainer,
-  Card,
   Container,
   Footer,
   FooterText,
@@ -15,28 +16,38 @@ import {
 } from './styles';
 
 export const Dashboard = () => {
+  const navigation = useNavigation();
+
   return (
-    <Container>
-      <Header>
-        <HeaderText>Cartão</HeaderText>
-        <HeaderIcon>
-          <FeatherIcon name="plus" size={30} />
-        </HeaderIcon>
-      </Header>
+    <SafeAreaView>
+      <Container>
+        <Header>
+          <HeaderText>Cartão</HeaderText>
 
-      <CreditCard />
+          <TouchableOpacity
+            onPress={() => navigation.navigate('CreateCard' as never)}
+          >
+            <HeaderIcon>
+              <FeatherIcon name="plus" size={30} />
+            </HeaderIcon>
+          </TouchableOpacity>
+        </Header>
 
-      <Footer>
-        <FooterText>Ações</FooterText>
-        <ButtonsContainer>
-          <Button text="ESCONDER NÚMERO">
-            <IoniconsIcon name="eye-outline" size={30} />
-          </Button>
-          <Button text="APAGAR CARTÃO" color="#F21D1D">
-            <IoniconsIcon name="trash-outline" size={30} />
-          </Button>
-        </ButtonsContainer>
-      </Footer>
-    </Container>
+        <CreditCard />
+
+        <Footer>
+          <FooterText>Ações</FooterText>
+
+          <ButtonsContainer>
+            <Button text="ESCONDER NÚMERO">
+              <IoniconsIcon name="eye-outline" size={30} />
+            </Button>
+            <Button text="APAGAR CARTÃO" color="#F21D1D">
+              <IoniconsIcon name="trash-outline" size={30} />
+            </Button>
+          </ButtonsContainer>
+        </Footer>
+      </Container>
+    </SafeAreaView>
   );
 };
