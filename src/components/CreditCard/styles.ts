@@ -6,7 +6,7 @@ export const Container = styled(LinearGradient).attrs({
   colors: ['rgba(236, 0, 140, 0.8)', 'rgba(252, 103, 103, 0.8)'],
 })`
   height: 205px;
-  width: 98%;
+  width: 100%;
 
   border-radius: 15px;
 `;

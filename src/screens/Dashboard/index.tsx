@@ -1,7 +1,7 @@
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 import { Button } from '../../components/Button';
-import { CreditCart } from '../../components/CreditCard';
+import { CreditCard } from '../../components/CreditCard';
 
 import {
   ButtonsContainer,
@@ -24,7 +24,7 @@ export const Dashboard = () => {
         </HeaderIcon>
       </Header>
 
-      <CreditCart />
+      <CreditCard />
 
       <Footer>
         <FooterText>Ações</FooterText>

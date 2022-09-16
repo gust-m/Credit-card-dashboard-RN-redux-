@@ -8,18 +8,32 @@ import {
   UserNameText,
 } from './styles';
 
-export const CreditCart = () => {
+interface CreditCardProps {
+  cardName?: string;
+  customerName?: string;
+  cardNumber?: string;
+}
+
+export const CreditCard = ({
+  cardName,
+  cardNumber,
+  customerName,
+}: CreditCardProps) => {
   return (
     <Container>
       <Content>
         <Header>
-          <HeaderText>Nome do cartão</HeaderText>
+          <HeaderText>{cardName ? cardName : 'Nome do cartão'}</HeaderText>
           <HeaderText>Bandeira</HeaderText>
         </Header>
 
         <Footer>
-          <UserNameText>Nome Completo</UserNameText>
-          <CardNumberText>1234 1234 1234 1234</CardNumberText>
+          <UserNameText>
+            {customerName ? customerName : 'Nome Completo'}
+          </UserNameText>
+          <CardNumberText>
+            {cardNumber ? cardNumber : '1234 1234 1234 1234'}
+          </CardNumberText>
         </Footer>
       </Content>
     </Container>
