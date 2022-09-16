@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components/native';
+import styled from 'styled-components/native';
 import { theme } from '../../global/styles/theme';
 
 interface TextProps {
@@ -6,10 +6,10 @@ interface TextProps {
 }
 
 export const Container = styled.View`
-  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 10px;
-
   margin-bottom: 16px;
+
+  elevation: 0.6;
 `;
 
 export const Content = styled.View`

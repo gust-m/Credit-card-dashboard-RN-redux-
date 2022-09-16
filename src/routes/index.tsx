@@ -9,7 +9,7 @@ export const Routes = () => {
   return (
     <NavigationContainer>
       <Navigator screenOptions={{ headerShown: false }}>
-        {/* <Screen name="Dashboard" component={Dashboard} /> */}
+        <Screen name="Dashboard" component={Dashboard} />
         <Screen name="CreateCard" component={CreateCard} />
       </Navigator>
     </NavigationContainer>
