@@ -1,12 +1,12 @@
 import styled from 'styled-components/native';
-import { LinearGradient } from 'expo-linear-gradient';
 
 import { theme } from '../../global/styles/theme';
 
 export const Container = styled.View`
-  flex: 1;
   padding: 20px;
   background: ${theme.colors.background};
+  height: 100%;
+  padding-top: 60px;
 `;
 
 export const Header = styled.View`
