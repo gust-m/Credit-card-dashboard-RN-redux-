@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { SafeAreaView, View } from 'react-native';
+import uuid from 'react-native-uuid';
+
 import { CreditCard } from '../../components/CreditCard';
 import { InputForm } from '../../components/InputForm';
+
 import {
   Button,
   ButtonText,
@@ -10,11 +14,15 @@ import {
   Header,
   HeaderText,
 } from './styles';
+import { addCard } from '../../store/modules/cards/actions';
+import { ICardState } from '../../store/modules/cards/types';
 
 export const CreateCard = () => {
   const [cardName, setCardName] = useState('');
   const [customerName, setCustomerName] = useState('');
   const [cardNumber, setCardNumber] = useState('');
+
+  const dispatch = useDispatch();
 
   const formatCardNumber = (text: string) => {
     if (/^([0-9 ]{0,100})+$/.test(text)) {
@@ -27,6 +35,20 @@ export const CreateCard = () => {
       setCardNumber(formattedTextWithSpaces);
     }
   };
+
+  const handleAddCard = useCallback(
+    (card: ICardState) => {
+      if (!card.cardName || !card.name || !card.number) {
+        return;
+      }
+      dispatch(addCard(card));
+
+      setCardName('');
+      setCustomerName('');
+      setCardNumber('');
+    },
+    [dispatch]
+  );
 
   return (
     <SafeAreaView>
@@ -67,7 +89,16 @@ export const CreateCard = () => {
         </Form>
 
         <View>
-          <Button>
+          <Button
+            onPress={() =>
+              handleAddCard({
+                id: String(uuid.v4()),
+                cardName,
+                name: customerName,
+                number: cardNumber,
+              })
+            }
+          >
             <ButtonText>ADICIONAR</ButtonText>
           </Button>
         </View>

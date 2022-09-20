@@ -8,6 +8,8 @@ import {
   Raleway_500Medium,
 } from '@expo-google-fonts/raleway';
 import { Roboto_700Bold, Roboto_400Regular } from '@expo-google-fonts/roboto';
+import { Provider } from 'react-redux';
+import { store } from './src/store';
 
 const App = () => {
   const [fontsLoaded] = useFonts({
@@ -21,7 +23,11 @@ const App = () => {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
-  return <Routes />;
+  return (
+    <Provider store={store}>
+      <Routes />
+    </Provider>
+  );
 };
 
 export default App;

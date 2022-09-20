@@ -3,7 +3,6 @@ import styled from 'styled-components/native';
 import { theme } from '../../global/styles/theme';
 
 export const Container = styled.View`
-  padding: 20px;
   background: ${theme.colors.background};
   height: 100%;
   padding-top: 60px;
@@ -15,6 +14,7 @@ export const Header = styled.View`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  padding: 20px 20px 0;
 
   margin-bottom: 32px;
 `;
@@ -35,10 +35,13 @@ export const HeaderIcon = styled.View`
   height: 45px;
 `;
 
-export const Card = styled.View``;
+export const SwiperContainer = styled.View`
+  height: 270px;
+`;
 
 export const Footer = styled.View`
   margin-top: 58px;
+  padding: 0 20px 20px 20px;
 `;
 
 export const FooterText = styled.Text`
