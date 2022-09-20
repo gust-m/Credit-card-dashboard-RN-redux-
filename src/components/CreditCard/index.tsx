@@ -12,12 +12,14 @@ interface CreditCardProps {
   cardName?: string;
   customerName?: string;
   cardNumber?: string;
+  showNumber?: boolean;
 }
 
 export const CreditCard = ({
   cardName,
   cardNumber,
   customerName,
+  showNumber = true,
 }: CreditCardProps) => {
   return (
     <Container>
@@ -32,7 +34,11 @@ export const CreditCard = ({
             {customerName ? customerName : 'Nome Completo'}
           </UserNameText>
           <CardNumberText>
-            {cardNumber ? cardNumber : '1234 1234 1234 1234'}
+            {showNumber
+              ? cardNumber
+                ? cardNumber
+                : '1234 1234 1234 1234'
+              : '**** **** **** ****'}
           </CardNumberText>
         </Footer>
       </Content>
